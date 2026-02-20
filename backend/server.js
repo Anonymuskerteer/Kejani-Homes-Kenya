@@ -18,8 +18,8 @@ const PORT = process.env.PORT || 5000;
 // Configure CORS for Express - Allow multiple origins for development
 const allowedOrigins = [
   'http://localhost:3000',
-  'https://kejani-homes-kenya-u3yr-daorvrbzk-anonys-projects-99efd9cf.vercel.app',
-  'https://kejani-homes-kenya-u3yr-b6g2osdaa-anonys-projects-99efd9cf.vercel.app',
+  'https://kejani-homes-kenya.vercel.app/',
+  'https://kejani-homes-kenya.onrender.com/',
   process.env.FRONTEND_URL // DevTunnel URL from environment
 ].filter(Boolean); // Remove any undefined values
 
