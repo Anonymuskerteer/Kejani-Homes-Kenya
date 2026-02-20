@@ -18,8 +18,8 @@ const PORT = process.env.PORT || 5000;
 // Configure CORS for Express - Allow multiple origins for development
 const allowedOrigins = [
   'http://localhost:3000',
-  'https://kejani-homes-kenya.vercel.app/',
-  'https://kejani-homes-kenya.onrender.com/',
+  'https://kejani-homes-kenya.vercel.app',
+  'https://kejani-homes-kenya.onrender.com',
   process.env.FRONTEND_URL // DevTunnel URL from environment
 ].filter(Boolean); // Remove any undefined values
 
@@ -38,8 +38,14 @@ const corsOptions = {
   },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
+  exposedHeaders: ['Content-Length', 'Content-Type'],
+  preflightContinue: false,
+  optionsSuccessStatus: 204
 };
+
+// Handle preflight requests explicitly
+app.options('*', cors(corsOptions));
 
 // Configure Socket.io
 const io = new Server(server, {
