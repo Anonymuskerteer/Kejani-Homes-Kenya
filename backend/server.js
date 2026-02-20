@@ -20,7 +20,7 @@ const allowedOrigins = [
   'http://localhost:5173',
   'http://localhost:5174',
   'http://localhost:3000',
-  'https://wjqxfkd4-5173.inc1.devtunnels.ms/',
+  'https://kejani-homes-kenya-u3yr-daorvrbzk-anonys-projects-99efd9cf.vercel.app',
   process.env.FRONTEND_URL // DevTunnel URL from environment
 ].filter(Boolean); // Remove any undefined values
 
