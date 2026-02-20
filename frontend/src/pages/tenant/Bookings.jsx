@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from 'react'
 import BookingCard from '../../components/BookingCard'
 import LoadingState from '../../components/LoadingState'
@@ -241,7 +242,7 @@ export default function Bookings() {
       ) : error ? (
         <ErrorState message={error} onRetry={fetchBookings} />
       ) : currentBookings.length > 0 ? (
-        <div className="space-y-3 sm:space-y-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
           {currentBookings.map(booking => (
             <BookingCard
               key={booking.id || booking._id}

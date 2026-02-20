@@ -169,7 +169,7 @@ export default function AppLayout() {
       </aside>
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col min-h-0 h-screen lg:ml-0">
+      <div className="flex-1 flex flex-col min-h-0 min-h-screen lg:h-screen lg:ml-0">
         {/* Top Header Bar */}
         <header className="flex-shrink-0 sticky top-0 z-30 bg-white/80 dark:bg-dark-foreground/80 backdrop-blur-lg border-b border-border dark:border-dark-border">
           <div className="px-4 py-3 flex items-center justify-between gap-4">
@@ -249,7 +249,7 @@ export default function AppLayout() {
         </header>
 
         {/* Main Content */}
-        <main className="flex-1 p-4 pb-28 lg:pb-6 overflow-y-auto overflow-x-hidden overscroll-contain min-h-0">
+        <main className="flex-1 p-4 pb-32 lg:pb-6 overflow-y-auto overflow-x-hidden overscroll-contain min-h-0 w-full">
           <Outlet />
         </main>
 
