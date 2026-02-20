@@ -13,7 +13,7 @@ export const initializeSocket = (token) => {
 
   // Socket.io needs to connect to base URL without /api path
   // VITE_API_URL might be http://localhost:5000/api, so we strip the /api part
-  const apiUrl = import.meta.env.VITE_API_URL || 'https://localhost:5000/api/'||'https://wjqxfkd4-5173.inc1.devtunnels.ms/api/'
+  const apiUrl = import.meta.env.VITE_API_URL || 'https://localhost:5000/api/'||'https://kejani-homes-kenya-u3yr-daorvrbzk-anonys-projects-99efd9cf.vercel.app/api/'
   const SOCKET_URL = apiUrl.replace(/\/api$/, '')
   
   socket = io(SOCKET_URL, {
