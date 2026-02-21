@@ -113,7 +113,7 @@ export default function Profile() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto space-y-6">
+    <div className="max-w-2xl mx-auto space-y-6 min-h-0 overflow-y-auto">
       {/* Profile header */}
       <div className="card text-center">
         <div className="flex flex-col items-center gap-4">

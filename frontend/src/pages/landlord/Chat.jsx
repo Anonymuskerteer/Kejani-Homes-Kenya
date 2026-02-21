@@ -397,7 +397,7 @@ export default function Chat() {
   }
 
   return (
-    <div className="h-full flex flex-col md:flex-row gap-4 -m-4 p-4 pb-28 lg:pb-4">
+    <div className="h-full flex flex-col md:flex-row gap-4 p-4 pb-28 lg:pb-4 min-h-0">
       {/* Conversations list */}
       <div className={`w-full md:w-80 flex-shrink-0 border border-border dark:border-dark-border rounded-card bg-background dark:bg-dark-background overflow-hidden flex flex-col ${
         selectedConversation ? 'hidden md:flex' : 'flex'

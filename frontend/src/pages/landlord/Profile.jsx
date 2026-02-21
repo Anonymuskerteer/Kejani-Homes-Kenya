@@ -175,7 +175,7 @@ export default function Profile() {
   const isAgency = user.accountType === 'agency'
 
   return (
-    <div className="max-w-2xl mx-auto space-y-6">
+    <div className="max-w-2xl mx-auto space-y-6 min-h-0 overflow-y-auto">
       {/* Profile header */}
       <div className="card">
         <div className="flex flex-col items-center text-center gap-4">
