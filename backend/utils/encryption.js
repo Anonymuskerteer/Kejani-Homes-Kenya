@@ -13,17 +13,22 @@ function getEncryptionKey() {
 function encrypt(text) {
   if (!text || typeof text !== 'string') return text;
 
-  const key = getEncryptionKey();
-  const iv = crypto.randomBytes(IV_LENGTH);
-  const cipher = crypto.createCipheriv(ALGORITHM, key, iv);
+  try {
+    const key = getEncryptionKey();
+    const iv = crypto.randomBytes(IV_LENGTH);
+    const cipher = crypto.createCipheriv(ALGORITHM, key, iv);
 
-  let encrypted = cipher.update(text, 'utf8', 'hex');
-  encrypted += cipher.final('hex');
+    let encrypted = cipher.update(text, 'utf8', 'hex');
+    encrypted += cipher.final('hex');
 
-  const tag = cipher.getAuthTag();
+    const tag = cipher.getAuthTag();
 
-  // Format: iv:tag:encrypted
-  return `enc:${iv.toString('hex')}:${tag.toString('hex')}:${encrypted}`;
+    // Format: iv:tag:encrypted
+    return `enc:${iv.toString('hex')}:${tag.toString('hex')}:${encrypted}`;
+  } catch (error) {
+    console.error('Encryption error:', error.message);
+    return text; // Return original text if encryption fails
+  }
 }
 
 function decrypt(encryptedText) {

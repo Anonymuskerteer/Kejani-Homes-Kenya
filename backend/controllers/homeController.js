@@ -99,6 +99,20 @@ exports.createHome = async (req, res) => {
       coordinates,
     } = req.body;
 
+    // Validate required fields
+    const missingFields = [];
+    if (!title) missingFields.push('title');
+    if (!description) missingFields.push('description');
+    if (!address && !location) missingFields.push('address/location');
+    if (!rentAmount && !price) missingFields.push('rentAmount/price');
+
+    if (missingFields.length > 0) {
+      return res.status(400).json({ 
+        message: 'Missing required fields',
+        missingFields 
+      });
+    }
+
     // Merge standard and custom amenities
     const allAmenities = [
       ...(amenities || []),
@@ -130,6 +144,27 @@ exports.createHome = async (req, res) => {
     res.status(201).json({ message: 'Listing created successfully', home });
   } catch (error) {
     console.error('Error creating home:', error);
+    console.error('Error stack:', error.stack);
+    
+    // Provide more specific error messages
+    if (error.name === 'ValidationError') {
+      const validationErrors = Object.keys(error.errors).map(key => ({
+        field: key,
+        message: error.errors[key].message
+      }));
+      return res.status(400).json({ 
+        message: 'Validation error',
+        validationErrors 
+      });
+    }
+    
+    if (error.name === 'MongoError' || error.name === 'MongoServerError') {
+      return res.status(500).json({ 
+        message: 'Database error',
+        error: error.message 
+      });
+    }
+    
     res.status(500).json({ message: 'Server error creating listing' });
   }
 };

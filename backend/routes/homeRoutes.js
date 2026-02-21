@@ -58,7 +58,11 @@ router.get('/', homeController.getHomes);
 router.get('/:id', homeController.getHomeById);
 
 // Protected routes - require authentication
-router.post('/', auth, requireRole(['landlord', 'admin']), homeController.createHome);
+router.post('/', auth, requireRole(['landlord', 'admin']), (req, res) => {
+  console.log('POST /api/listings - User:', req.user?.email, 'Role:', req.user?.role);
+  console.log('Request body:', JSON.stringify(req.body, null, 2));
+  homeController.createHome(req, res);
+});
 router.put('/:id', auth, homeController.updateHome);
 router.delete('/:id', auth, homeController.deleteHome);
 
