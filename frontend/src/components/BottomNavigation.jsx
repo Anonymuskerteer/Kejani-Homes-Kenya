@@ -34,7 +34,7 @@ export default function BottomNavigation({ userType = 'tenant' }) {
   };
 
   return (
-    <nav className="lg:hidden fixed bottom-0 left-0 right-0 bg-white/95 dark:bg-dark-foreground/95 backdrop-blur-lg border-t border-border dark:border-dark-border z-30 safe-area-bottom overscroll-contain">
+    <nav className="lg:hidden fixed bottom-0 left-0 right-0 bg-white/95 dark:bg-dark-foreground/95 backdrop-blur-lg border-t border-border dark:border-dark-border z-30 safe-area-bottom">
       <div className="flex justify-around h-14 sm:h-16 max-w-lg mx-auto w-full px-1 sm:px-2">
         {navItems.map((item) => {
           const Icon = item.icon;

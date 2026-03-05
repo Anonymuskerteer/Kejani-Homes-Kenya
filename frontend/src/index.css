@@ -10,8 +10,10 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Allow normal scroll behavior */
+    touch-action: pan-y;
     /* Prevent overscroll bounce on mobile */
-    overscroll-behavior: none;
+    overscroll-behavior: auto;
     /* Prevent horizontal overflow */
     overflow-x: hidden;
     /* Use dynamic viewport height for mobile */

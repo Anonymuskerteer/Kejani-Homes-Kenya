@@ -249,7 +249,7 @@ export default function AppLayout() {
         </header>
 
         {/* Main Content */}
-        <main className="flex-1 p-4 pb-32 lg:pb-6 overflow-y-auto overflow-x-hidden overscroll-contain min-h-0 w-full">
+        <main className="flex-1 p-4 pb-32 lg:pb-6 overflow-y-auto overflow-x-hidden min-h-0 w-full">
           <Outlet />
         </main>
 
